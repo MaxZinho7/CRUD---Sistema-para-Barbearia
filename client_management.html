@@ -11,7 +11,7 @@
   <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
   </head>
 <body class="bg-background min-h-screen">
-    <!-- Header Navigation -->
+    <!-- Menu de navegação do cabeçalho -->
     <header class="bg-surface shadow-card border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <!-- Navigation -->
+                <!-- Navegação -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="barber_dashboard.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
                         <i class="fas fa-home mr-2"></i>Dashboard
@@ -46,7 +46,7 @@
                     </a>
                 </nav>
 
-                <!-- User Menu -->
+                <!-- Menu do usuário -->
                 <div class="flex items-center space-x-4">
                     <div class="hidden md:block text-right">
                         <p class="text-sm font-medium text-text-primary">Gabriel da Silva</p>
@@ -63,9 +63,9 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Conteúdo principal -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Page Header -->
+        <!-- Leitor de página -->
         <div class="mb-8">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -82,12 +82,12 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <!-- Main Content Area -->
+            <!-- Área do conteúdo principal -->
             <div class="lg:col-span-3 space-y-6">
-                <!-- Search and Filters -->
+                <!-- Pesquisa e filtros -->
                 <section class="card">
                     <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                        <!-- Search Bar -->
+                        <!-- Barra de pesquisa -->
                         <div class="flex-1 relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-search text-text-secondary"></i>
@@ -98,7 +98,7 @@
                                    id="clientSearch">
                         </div>
                         
-                        <!-- Filter Buttons -->
+                        <!-- Botões de filtro -->
                         <div class="flex flex-wrap gap-2">
                             <button class="btn-secondary text-sm" id="filterAll">
                                 <i class="fas fa-users mr-1"></i>Todos (47)
@@ -114,13 +114,13 @@
                             </button>
                         </div>
 
-                        <!-- Advanced Filters -->
+                        <!-- Filtros avançados -->
                         <button class="btn-secondary text-sm" id="advancedFilters">
                             <i class="fas fa-filter mr-1"></i>Filtros
                         </button>
                     </div>
 
-                    <!-- Advanced Filter Panel (Hidden by default) -->
+                    <!-- Painel de filtro avançado(escondido por padrão) -->
                     <div id="advancedFilterPanel" class="hidden mt-4 pt-4 border-t border-border">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
@@ -161,12 +161,12 @@
                     </div>
                 </section>
 
-                <!-- Client Directory -->
+                <!-- Diretório do cliente -->
                 <section class="space-y-4" id="clientDirectory">
-                    <!-- Client Card 1 -->
+                    <!-- Cartão do cliente 1 -->
                     <div class="card hover:shadow-md transition-shadow client-card">
                         <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                            <!-- Client Info -->
+                            <!-- Informação do cliente -->
                             <div class="flex items-center flex-1">
                                 <img class="h-12 w-12 rounded-full object-cover mr-4" 
                                      src="https://i.pinimg.com/474x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg" 
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
 
-                            <!-- Stats -->
+                            <!-- Status -->
                             <div class="flex items-center space-x-6 text-center">
                                 <div>
                                     <div class="text-lg font-semibold text-primary">23</div>
@@ -204,7 +204,7 @@
                                 </div>
                             </div>
 
-                            <!-- Actions -->
+                            <!-- Ações -->
                             <div class="flex items-center space-x-2">
                                 <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('João Silva')">
                                     <i class="fas fa-calendar-plus mr-1"></i>Agendar
@@ -218,7 +218,7 @@
                             </div>
                         </div>
 
-                        <!-- Expandable Details -->
+                        <!-- Detalhes expansíveis -->
                         <div class="client-details hidden mt-4 pt-4 border-t border-border">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
@@ -236,10 +236,10 @@
                         </div>
                     </div>
 
-                    <!-- Client Card 2 -->
+                    <!-- Cartão do cliente 2 -->
                     <div class="card hover:shadow-md transition-shadow client-card">
                         <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                            <!-- Client Info -->
+                            <!-- Informação do cliente -->
                             <div class="flex items-center flex-1">
                                 <img class="h-12 w-12 rounded-full object-cover mr-4" 
                                      src="https://i.pinimg.com/474x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg" 
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
 
-                            <!-- Stats -->
+                            <!-- Status -->
                             <div class="flex items-center space-x-6 text-center">
                                 <div>
                                     <div class="text-lg font-semibold text-primary">8</div>
@@ -277,7 +277,7 @@
                                 </div>
                             </div>
 
-                            <!-- Actions -->
+                            <!-- Ações -->
                             <div class="flex items-center space-x-2">
                                 <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('Pedro Santos')">
                                     <i class="fas fa-calendar-plus mr-1"></i>Agendar
@@ -292,10 +292,10 @@
                         </div>
                     </div>
 
-                    <!-- Client Card 3 -->
+                    <!-- Cartão do cliente 3 -->
                     <div class="card hover:shadow-md transition-shadow client-card">
                         <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                            <!-- Client Info -->
+                            <!-- Informação do cliente -->
                             <div class="flex items-center flex-1">
                                 <img class="h-12 w-12 rounded-full object-cover mr-4" 
                                      src="https://i.pinimg.com/474x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg" 
@@ -314,7 +314,7 @@
                                 </div>
                             </div>
 
-                            <!-- Stats -->
+                            <!-- Status -->
                             <div class="flex items-center space-x-6 text-center">
                                 <div>
                                     <div class="text-lg font-semibold text-primary">1</div>
@@ -333,7 +333,7 @@
                                 </div>
                             </div>
 
-                            <!-- Actions -->
+                            <!-- Ações -->
                             <div class="flex items-center space-x-2">
                                 <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('Carlos Oliveira')">
                                     <i class="fas fa-calendar-plus mr-1"></i>Agendar
@@ -349,7 +349,7 @@
                     </div>
                 </section>
 
-                <!-- Pagination -->
+                <!-- Paginação -->
                 <div class="flex items-center justify-between">
                     <div class="text-sm text-text-secondary">
                         Mostrando 1-10 de 47 clientes
@@ -368,9 +368,9 @@
                 </div>
             </div>
 
-            <!-- Sidebar Analytics -->
+            <!-- Barra lateral de análises -->
             <div class="space-y-6">
-                <!-- Client Analytics -->
+                <!-- Analíses de cliente -->
                 <section class="card">
                     <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                         <i class="fas fa-chart-bar text-primary mr-2"></i>
@@ -396,7 +396,7 @@
                     </div>
                 </section>
 
-                <!-- Revenue Analytics -->
+                <!-- Análises de receita -->
                 <section class="card">
                     <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                         <i class="fas fa-dollar-sign text-accent mr-2"></i>
@@ -418,7 +418,7 @@
                     </div>
                 </section>
 
-                <!-- Popular Services -->
+                <!-- Serviços populares -->
                 <section class="card">
                     <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                         <i class="fas fa-cut text-primary mr-2"></i>
@@ -455,7 +455,7 @@
                     </div>
                 </section>
 
-                <!-- Quick Actions -->
+                <!-- Ações rápidas -->
                 <section class="card">
                     <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                         <i class="fas fa-bolt text-accent mr-2"></i>
@@ -480,7 +480,7 @@
         </div>
     </main>
 
-    <!-- Mobile Navigation -->
+    <!-- Navegação Mobile -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-border">
         <div class="flex justify-around py-2">
             <a href="barber_dashboard.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
@@ -502,7 +502,7 @@
         </div>
     </nav>
 
-    <!-- Client Profile Modal -->
+    <!-- Modal do perfil do cliente -->
     <div id="clientProfileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
             <div class="flex items-center justify-between mb-6">
@@ -513,12 +513,12 @@
             </div>
             
             <div id="clientProfileContent">
-                <!-- Content will be dynamically loaded -->
+                <!-- Conteúdo vai ser carregado dinamicamente -->
             </div>
         </div>
     </div>
 
-    <!-- Add Client Modal -->
+    <!-- Adcionar modal do cliente -->
     <div id="addClientModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-surface rounded-lg p-6 m-4 max-w-md w-full">
             <div class="flex items-center justify-between mb-4">
@@ -553,7 +553,7 @@
     </div>
 
     <script>
-        // Search functionality
+        // Procurar funcionalidades
         document.getElementById('clientSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const clientCards = document.querySelectorAll('.client-card');
@@ -571,28 +571,28 @@
             });
         });
 
-        // Advanced filters toggle
+        // Alternar filtros avançados
         document.getElementById('advancedFilters').addEventListener('click', function() {
             const panel = document.getElementById('advancedFilterPanel');
             panel.classList.toggle('hidden');
         });
 
-        // Filter buttons
+        // Botões de filtro
         document.querySelectorAll('[id^="filter"]').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active state from all filter buttons
+                // Remover estado ativo de todos os botões de filtro
                 document.querySelectorAll('[id^="filter"]').forEach(btn => {
                     btn.classList.remove('bg-primary', 'text-white');
                     btn.classList.add('btn-secondary');
                 });
                 
-                // Add active state to clicked button
+                // Adicionar estado ativo ao botão clicado
                 this.classList.remove('btn-secondary');
                 this.classList.add('bg-primary', 'text-white');
             });
         });
 
-        // Client card expand/collapse
+        // Expandir/recolher cartão do cliente
         document.querySelectorAll('.client-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 if (!e.target.closest('button')) {
@@ -602,17 +602,17 @@
             });
         });
 
-        // Modal functions
+        // Funções moldais
         function scheduleAppointment(clientName) {
             alert(`Agendando consulta para ${clientName}`);
-            // In a real app, this would open the appointment booking modal
+            // Em um app real, isso abriria o modal de agendamento de consultas
         }
 
         function viewClientProfile(clientId) {
             const modal = document.getElementById('clientProfileModal');
             const content = document.getElementById('clientProfileContent');
             
-            // Mock profile content
+            // Conteúdo de perfil fictício
             content.innerHTML = `
                 <div class="flex items-center mb-6">
                     <img class="h-16 w-16 rounded-full object-cover mr-4" 
@@ -675,7 +675,7 @@
             modal.classList.remove('flex');
         }
 
-        // Add client button
+        // Adcionar botão do cliente
         document.querySelector('.btn-primary').addEventListener('click', function() {
             if (this.textContent.includes('Adicionar Cliente')) {
                 const modal = document.getElementById('addClientModal');
@@ -684,7 +684,7 @@
             }
         });
 
-        // Close modals when clicking outside
+        // Fechar moldais quando clicado fora
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('bg-black')) {
                 closeClientProfile();
@@ -694,4 +694,5 @@
     </script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>
