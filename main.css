@@ -240,7 +240,7 @@ strong {
 1. Usar, por padrão, a font-family mono configurada pelo usuário.
 2. Usar, por padrão, as font-feature-settings mono configuradas pelo usuário.
 3. Usar, por padrão, as font-variation-settings mono configuradas pelo usuário.
-4. Corrigir o dimensionamento estranho em em em todos os navegadores.
+4. Corrigir o dimensionamento estranho em todos os navegadores.
 */
 
 code,
@@ -1985,3 +1985,4 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 }
+
