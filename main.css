@@ -115,8 +115,8 @@
 */
 
 /*
-1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+1.Impedir que padding e borda afetem a largura do elemento. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Permitir adicionar uma borda a um elemento apenas definindo a largura da borda. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
 *,
@@ -138,13 +138,13 @@
 }
 
 /*
-1. Use a consistent sensible line-height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-3. Use a more readable tab size.
-4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
-6. Use the user's configured `sans` font-variation-settings by default.
-7. Disable tap highlights on iOS
+1. Usar uma altura de linha consistente e adequada em todos os navegadores.
+2. Evitar ajustes de tamanho de fonte após mudanças de orientação no iOS.
+3. Usar um tamanho de tabulação mais legível.
+4. Usar, por padrão, a font-family `sans` configurada pelo usuário.
+5. Usar, por padrão, as font-feature-settings `sans` configuradas pelo usuário.
+6. Usar, por padrão, as font-variation-settings `sans` configuradas pelo usuário.
+7. Desativar destaques ao tocar (tap highlights) no iOS.
 */
 
 html,
@@ -169,8 +169,8 @@ html,
 }
 
 /*
-1. Remove the margin in all browsers.
-2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+1. Remover a margem em todos os navegadores.
+2. Herdar a altura da linha do `html` para que os usuários possam defini-la como uma classe diretamente no elemento `html`.
 */
 
 body {
@@ -181,9 +181,9 @@ body {
 }
 
 /*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
+1. Adicionar a altura correta no Firefox.
+2. Corrigir a herança da cor da borda no Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Garantir que as linhas horizontais estejam visíveis por padrão.
 */
 
 hr {
@@ -196,7 +196,7 @@ hr {
 }
 
 /*
-Add the correct text decoration in Chrome, Edge, and Safari.
+Adicionar a decoração de texto correta no Chrome, Edge e Safari.
 */
 
 abbr:where([title]) {
@@ -205,7 +205,7 @@ abbr:where([title]) {
 }
 
 /*
-Remove the default font size and weight for headings.
+Remover o tamanho e peso de fonte padrão dos títulos.
 */
 
 h1,
@@ -219,7 +219,7 @@ h6 {
 }
 
 /*
-Reset links to optimize for opt-in styling instead of opt-out.
+Redefinir os links para otimizar o estilo para opt-in em vez de opt-out.
 */
 
 a {
@@ -228,7 +228,7 @@ a {
 }
 
 /*
-Add the correct font weight in Edge and Safari.
+Adicionar o peso de fonte correto no Edge e Safari.
 */
 
 b,
@@ -237,10 +237,10 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font-family by default.
-2. Use the user's configured `mono` font-feature-settings by default.
-3. Use the user's configured `mono` font-variation-settings by default.
-4. Correct the odd `em` font sizing in all browsers.
+1. Usar, por padrão, a font-family mono configurada pelo usuário.
+2. Usar, por padrão, as font-feature-settings mono configuradas pelo usuário.
+3. Usar, por padrão, as font-variation-settings mono configuradas pelo usuário.
+4. Corrigir o dimensionamento estranho em em em todos os navegadores.
 */
 
 code,
@@ -1983,4 +1983,5 @@ h1, h2, h3, h4, h5, h6 {
   .xl\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
 }
