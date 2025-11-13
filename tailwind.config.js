@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary Colors
+        // Cores primárias
         primary: {
           DEFAULT: "#2563EB", // blue-600
           50: "#EFF6FF", // blue-50
@@ -13,7 +13,7 @@ module.exports = {
           700: "#1D4ED8", // blue-700
           900: "#1E3A8A", // blue-900
         },
-        // Secondary Colors
+        // Cores secundárias
         secondary: {
           DEFAULT: "#64748B", // slate-500
           100: "#F1F5F9", // slate-100
@@ -24,7 +24,7 @@ module.exports = {
           600: "#475569", // slate-600
           700: "#334155", // slate-700
         },
-        // Accent Colors
+        // Cores de destaque
         accent: {
           DEFAULT: "#F59E0B", // amber-500
           50: "#FFFBEB", // amber-50
@@ -33,15 +33,15 @@ module.exports = {
           500: "#F59E0B", // amber-500
           600: "#D97706", // amber-600
         },
-        // Background Colors
+        // Cores do fundo
         background: "#FAFAFA", // gray-50
         surface: "#FFFFFF", // white
-        // Text Colors
+        // Cores do texto
         text: {
           primary: "#1E293B", // slate-800
           secondary: "#64748B", // slate-500
         },
-        // Status Colors
+        // Cores de Status
         success: {
           DEFAULT: "#10B981", // emerald-500
           50: "#ECFDF5", // emerald-50
@@ -62,7 +62,7 @@ module.exports = {
           500: "#EF4444", // red-500
           600: "#DC2626", // red-600
         },
-        // Border Colors
+        // Cores da borda
         border: "#E2E8F0", // slate-200
       },
       fontFamily: {
@@ -123,4 +123,5 @@ module.exports = {
     },
   },
   plugins: [],
+
 }
