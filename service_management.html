@@ -11,7 +11,7 @@
   <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
   </head>
 <body class="bg-background min-h-screen">
-    <!-- Header Navigation -->
+    <!-- Navegação do cabeçalho -->
     <header class="bg-surface shadow-card border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <!-- Navigation -->
+                <!-- Navegação -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="barber_dashboard.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
                         <i class="fas fa-home mr-2"></i>Dashboard
@@ -46,7 +46,7 @@
                     </a>
                 </nav>
 
-                <!-- User Menu -->
+                <!-- Menu do usuário -->
                 <div class="flex items-center space-x-4">
                     <div class="hidden md:block text-right">
                         <p class="text-sm font-medium text-text-primary">Gabriel da Silva</p>
@@ -63,9 +63,9 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Conteúdo principal -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Page Header -->
+        <!-- Leitor de página -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
             <div>
                 <h2 class="text-3xl font-bold text-text-primary mb-2">Gerenciamento de Serviços</h2>
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <!-- Service Statistics -->
+        <!-- Estatísticas de serviço -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="card">
                 <div class="flex items-center">
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <!-- Service Categories Filter -->
+        <!-- Filtro de categoria de serviços -->
         <div class="mb-6">
             <div class="flex flex-wrap gap-2">
                 <button class="category-filter active px-4 py-2 rounded-full text-sm font-medium bg-primary text-white" data-category="all">
@@ -152,9 +152,9 @@
             </div>
         </div>
 
-        <!-- Services Grid -->
+        <!-- Grade de serviços -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGrid">
-            <!-- Service Card 1 -->
+            <!-- Cartão de serviço 1 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="cortes">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -191,7 +191,7 @@
                 </div>
             </div>
 
-            <!-- Service Card 2 -->
+            <!-- Cartão de Serviço 2 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="cortes">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -228,7 +228,7 @@
                 </div>
             </div>
 
-            <!-- Service Card 3 -->
+            <!-- Cartão de serviço 3 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="barba">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -265,7 +265,7 @@
                 </div>
             </div>
 
-            <!-- Service Card 4 -->
+            <!-- Cartão de serviço 4 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="pacotes">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -305,7 +305,7 @@
                 </div>
             </div>
 
-            <!-- Service Card 5 -->
+            <!-- Cartão de serviço 5 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="styling">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -342,7 +342,7 @@
                 </div>
             </div>
 
-            <!-- Service Card 6 -->
+            <!-- Cartão de serviço 6 -->
             <div class="card service-card hover:shadow-md transition-shadow" data-category="styling">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center">
@@ -380,7 +380,7 @@
             </div>
         </div>
 
-        <!-- Revenue Analysis Section -->
+        <!-- Seção de análise de receita -->
         <section class="mt-12">
             <div class="card">
                 <div class="flex items-center justify-between mb-6">
@@ -398,7 +398,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Revenue Chart Placeholder -->
+                    <!-- Espaço reservado para gráfica de receita -->
                     <div class="space-y-4">
                         <h4 class="font-medium text-text-primary">Receita por Categoria</h4>
                         <div class="h-64 bg-secondary-50 rounded-lg flex items-center justify-center border-2 border-dashed border-secondary-200">
@@ -410,7 +410,7 @@
                         </div>
                     </div>
 
-                    <!-- Top Services -->
+                    <!-- Principais serviços -->
                     <div class="space-y-4">
                         <h4 class="font-medium text-text-primary">Serviços Mais Rentáveis</h4>
                         <div class="space-y-3">
@@ -462,7 +462,7 @@
         </section>
     </main>
 
-    <!-- Mobile Navigation -->
+    <!-- Navegação mobile -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-border">
         <div class="flex justify-around py-2">
             <a href="barber_dashboard.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
@@ -484,7 +484,7 @@
         </div>
     </nav>
 
-    <!-- Add Service Modal -->
+    <!-- Adcionar modal de serviços -->
     <div id="addServiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
             <div class="flex items-center justify-between mb-6">
@@ -561,7 +561,7 @@
         </div>
     </div>
 
-    <!-- Edit Service Modal -->
+    <!-- Editar modal de serviço -->
     <div id="editServiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
             <div class="flex items-center justify-between mb-6">
@@ -611,7 +611,7 @@
                     </div>
                 </div>
 
-                <!-- Pricing History -->
+                <!-- Histórico de preços -->
                 <div>
                     <label class="block text-sm font-medium text-text-primary mb-2">Histórico de Preços</label>
                     <div class="bg-secondary-50 rounded-lg p-4">
@@ -640,7 +640,7 @@
         </div>
     </div>
 
-    <!-- Bulk Pricing Modal -->
+    <!-- Modelos de preços em massa -->
     <div id="bulkPricingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-surface rounded-lg p-6 m-4 max-w-lg w-full">
             <div class="flex items-center justify-between mb-6">
@@ -695,9 +695,9 @@
     </div>
 
     <script>
-        // Modal functionality
+        // Funcionalidade modal
         document.addEventListener('DOMContentLoaded', function() {
-            // Add Service Modal
+            // Adcionar modal de serviços
             const addServiceBtn = document.getElementById('addServiceBtn');
             const addServiceModal = document.getElementById('addServiceModal');
             const closeAddModal = document.getElementById('closeAddModal');
@@ -715,7 +715,7 @@
                 });
             });
 
-            // Edit Service Modal
+            // Editar modal de serviços
             const editServiceModal = document.getElementById('editServiceModal');
             const closeEditModal = document.getElementById('closeEditModal');
             const cancelEditModal = document.getElementById('cancelEditModal');
@@ -727,7 +727,7 @@
                 });
             });
 
-            // Bulk Pricing Modal
+            // Modelo de preços em massa
             const bulkPricingBtn = document.getElementById('bulkPricingBtn');
             const bulkPricingModal = document.getElementById('bulkPricingModal');
             const closeBulkModal = document.getElementById('closeBulkModal');
@@ -745,7 +745,7 @@
                 });
             });
 
-            // Category Filter
+            // Filtro de categoria
             const categoryFilters = document.querySelectorAll('.category-filter');
             const serviceCards = document.querySelectorAll('.service-card');
 
@@ -753,7 +753,7 @@
                 filter.addEventListener('click', function() {
                     const category = this.dataset.category;
                     
-                    // Update active filter
+                    // Atualizar filtro ativo
                     categoryFilters.forEach(f => {
                         f.classList.remove('active', 'bg-primary', 'text-white');
                         f.classList.add('bg-secondary-100', 'text-secondary-700');
@@ -762,7 +762,7 @@
                     this.classList.add('active', 'bg-primary', 'text-white');
                     this.classList.remove('bg-secondary-100', 'text-secondary-700');
 
-                    // Filter service cards
+                    // Filtrar cartões de serviço
                     serviceCards.forEach(card => {
                         if (category === 'all' || card.dataset.category === category) {
                             card.style.display = 'block';
@@ -773,7 +773,7 @@
                 });
             });
 
-            // Close modals when clicking outside
+            // Fechar modal ao clicar fora
             [addServiceModal, editServiceModal, bulkPricingModal].forEach(modal => {
                 modal.addEventListener('click', function(e) {
                     if (e.target === modal) {
@@ -784,7 +784,7 @@
             });
         });
 
-        // Edit service function
+        // Editar função de serviço
         function editService(serviceId) {
             const editServiceModal = document.getElementById('editServiceModal');
             editServiceModal.classList.remove('hidden');
@@ -793,4 +793,5 @@
     </script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>
