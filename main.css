@@ -258,7 +258,7 @@ pre {
 }
 
 /*
-Add the correct font size in all browsers.
+Adiciona o tamanho de fonte correto em todos os navegadores.
 */
 
 small {
@@ -266,7 +266,7 @@ small {
 }
 
 /*
-Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+Impede que os elementos `sub` e `sup` afetem a altura da linha em todos os navegadores.
 */
 
 sub,
@@ -286,10 +286,11 @@ sup {
 }
 
 /*
-1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-3. Remove gaps between table borders by default.
+1. Remove a indentação de texto do conteúdo das tabelas no Chrome e Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Corrige a herança da cor da borda das tabelas em todos os Chrome e Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove os espaçamentos entre as bordas das tabelas por padrão.
 */
+
 
 table {
   text-indent: 0;
@@ -301,9 +302,9 @@ table {
 }
 
 /*
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-3. Remove default padding in all browsers.
+1. Altera os estilos de fonte em todos os navegadores.
+2. Remove a margem no Firefox e Safari.
+3. Remove o padding padrão em todos os navegadores.
 */
 
 button,
@@ -334,8 +335,9 @@ textarea {
 }
 
 /*
-Remove the inheritance of text transform in Edge and Firefox.
+Remove a herança de transformação de texto no Edge e Firefox.
 */
+
 
 button,
 select {
@@ -343,8 +345,8 @@ select {
 }
 
 /*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Remove default button styles.
+1. Corrige a incapacidade de estilizar tipos clicáveis no iOS e Safari.
+2. Remove os estilos padrão dos botões.
 */
 
 button,
@@ -360,7 +362,7 @@ input:where([type='submit']) {
 }
 
 /*
-Use the modern Firefox focus style for all focusable elements.
+Use o estilo moderno de foco do Firefox para todos os elementos focáveis.
 */
 
 :-moz-focusring {
@@ -368,7 +370,7 @@ Use the modern Firefox focus style for all focusable elements.
 }
 
 /*
-Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+Remove os estilos adicionais de `:invalid` no Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
 :-moz-ui-invalid {
@@ -376,7 +378,7 @@ Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/
 }
 
 /*
-Add the correct vertical alignment in Chrome and Firefox.
+Adiciona o alinhamento vertical correto no Chrome e Firefox.
 */
 
 progress {
@@ -384,8 +386,9 @@ progress {
 }
 
 /*
-Correct the cursor style of increment and decrement buttons in Safari.
+Corrige o estilo do cursor dos botões de incremento e decremento no Safari.
 */
+
 
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
@@ -393,9 +396,10 @@ Correct the cursor style of increment and decrement buttons in Safari.
 }
 
 /*
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
+1. Corrige a aparência estranha no Chrome e Safari.
+2. Corrige o estilo do contorno no Safari.
 */
+
 
 [type='search'] {
   -webkit-appearance: textfield;
@@ -405,17 +409,19 @@ Correct the cursor style of increment and decrement buttons in Safari.
 }
 
 /*
-Remove the inner padding in Chrome and Safari on macOS.
+Remove o padding interno no Chrome e Safari no macOS.
 */
+
 
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
 /*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
+1. Corrige a incapacidade de estilizar tipos clicáveis no iOS e Safari.
+2. Altera as propriedades de fonte para `inherit` no Safari.
 */
+
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
@@ -424,17 +430,33 @@ Remove the inner padding in Chrome and Safari on macOS.
   /* 2 */
 }
 
-/*
-Add the correct display in Chrome and Safari.
+Esses parecem ser comentários de código CSS. A tradução para o português é:
+
+> /*
+> **Adicione a exibição correta no Chrome e Safari.**
+> */
+
+---
+/* 
+Adicione a exibição correta no Chrome e Safari.
 */
+
 
 summary {
   display: list-item;
+/*
+  Remove o espaçamento e a borda padrão para os elementos apropriados. 
+  */
 }
 
-/*
-Removes the default spacing and border for appropriate elements.
-*/
+
+> /*
+> **Remove o espaçamento e a borda padrão para os elementos apropriados.**
+> */
+
+---
+
+
 
 blockquote,
 dl,
@@ -470,25 +492,22 @@ menu {
 }
 
 /*
-Reset default styling for dialogs.
+Reinicia o estilo padrão para diálogos.
 */
 
 dialog {
   padding: 0;
 }
 
-/*
-Prevent resizing textareas horizontally by default.
+/* 
+Impedir o redimensionamento horizontal de textareas por padrão.
 */
 
 textarea {
   resize: vertical;
 }
 
-/*
-1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-2. Set the default placeholder color to the user's configured gray 400 color.
-*/
+/* 1. Reiniciar a opacidade padrão do placeholder no Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300) 2. Definir a cor padrão do placeholder para a cor cinza 400 configurada pelo usuário. */
 
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
@@ -505,8 +524,8 @@ textarea::placeholder {
   /* 2 */
 }
 
-/*
-Set the default cursor for buttons.
+/* 
+Definir o cursor padrão para botões.
 */
 
 button,
@@ -515,17 +534,15 @@ button,
 }
 
 /*
-Make sure disabled buttons don't get the pointer cursor.
+Garantir que botões desativados não recebam o cursor de ponteiro. 
 */
 
 :disabled {
   cursor: default;
 }
 
-/*
-1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
-2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
+/* 1. 
+Tornar elementos substituídos display: block por padrão. (https://github.com/mozdevs/cssremedy/issues/14) 2. Adicionar vertical-align: middle para alinhar elementos substituídos de forma mais sensata por padrão. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210) Isto pode desencadear um erro de lint mal considerado em algumas ferramentas, mas está incluído por design.
 */
 
 img,
@@ -542,9 +559,8 @@ object {
   /* 2 */
 }
 
-/*
-Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
-*/
+/* 
+Restringir imagens e vídeos à largura do elemento pai e preservar sua proporção intrínseca (aspect ratio). (https://github.com/mozdevs/cssremedy/issues/14) */
 
 img,
 video {
@@ -552,7 +568,7 @@ video {
   height: auto;
 }
 
-/* Make elements with the HTML hidden attribute stay hidden by default */
+/* Garantir que elementos com o atributo HTML hidden permaneçam escondidos por padrão. */
 
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
@@ -1704,97 +1720,97 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-  /* Primary Colors */
+ /* Cores Primárias */
   --color-primary: #2563EB;
-  /* blue-600 */
+  /* azul-600 */
   --color-primary-50: #EFF6FF;
-  /* blue-50 */
+  /* azul-50 */
   --color-primary-100: #DBEAFE;
-  /* blue-100 */
+  /* azul-100 */
   --color-primary-500: #3B82F6;
-  /* blue-500 */
+  /* azul-500 */
   --color-primary-600: #2563EB;
-  /* blue-600 */
+  /* azul-600 */
   --color-primary-700: #1D4ED8;
-  /* blue-700 */
+  /* azul-700 */
   --color-primary-900: #1E3A8A;
-  /* blue-900 */
-  /* Secondary Colors */
+  /* azul-900 */
+  /* Cores Secundárias */
   --color-secondary: #64748B;
-  /* slate-500 */
+  /* ardósia-500 */
   --color-secondary-100: #F1F5F9;
-  /* slate-100 */
+ /* ardósia-100 */
   --color-secondary-200: #E2E8F0;
-  /* slate-200 */
+  /* ardósia-200 */
   --color-secondary-300: #CBD5E1;
-  /* slate-300 */
+  /* ardósia-300 */
   --color-secondary-400: #94A3B8;
-  /* slate-400 */
+  /* ardósia-400 */
   --color-secondary-500: #64748B;
-  /* slate-500 */
+  /* ardósia-500 */
   --color-secondary-600: #475569;
-  /* slate-600 */
+  /* ardósia-600 */
   --color-secondary-700: #334155;
-  /* slate-700 */
-  /* Accent Colors */
+  /* ardósia-700 */
+  /* Cores de destaque */
   --color-accent: #F59E0B;
-  /* amber-500 */
+  /* âmbar-500 */
   --color-accent-50: #FFFBEB;
-  /* amber-50 */
+  /* âmbar-50 */
   --color-accent-100: #FEF3C7;
-  /* amber-100 */
+  /* âmbar-100 */
   --color-accent-400: #FBBF24;
-  /* amber-400 */
+  /* âmbar-400 */
   --color-accent-500: #F59E0B;
-  /* amber-500 */
+  /* âmbar-500 */
   --color-accent-600: #D97706;
-  /* amber-600 */
-  /* Background Colors */
+  /* âmbar-600 */
+  /* Cores de Fundo */
   --color-background: #FAFAFA;
-  /* gray-50 */
+  /* cinza-50 */
   --color-surface: #FFFFFF;
-  /* white */
-  /* Text Colors */
+  /* branco */
+  /* Cores de Texto */
   --color-text-primary: #1E293B;
-  /* slate-800 */
+  /* ardósia-800 */
   --color-text-secondary: #64748B;
-  /* slate-500 */
-  /* Status Colors */
+  /* ardósia-500 */
+  /* Cores de Status */
   --color-success: #10B981;
-  /* emerald-500 */
+  /* esmeralda-500 */
   --color-success-50: #ECFDF5;
-  /* emerald-50 */
+  /* esmeralda-50 */
   --color-success-100: #D1FAE5;
-  /* emerald-100 */
+  /* esmeralda-100 */
   --color-success-500: #10B981;
-  /* emerald-500 */
+  /* esmeralda-500 */
   --color-success-600: #059669;
-  /* emerald-600 */
+  /* esmeralda-600 */
   --color-warning: #F59E0B;
-  /* amber-500 */
+  /* âmbar-500 */
   --color-warning-50: #FFFBEB;
-  /* amber-50 */
+  /* âmbar-50 */
   --color-warning-100: #FEF3C7;
-  /* amber-100 */
+  /* âmbar-100 */
   --color-warning-500: #F59E0B;
-  /* amber-500 */
+  /* âmbar-500 */
   --color-error: #EF4444;
-  /* red-500 */
+  /* vermelho-500 */
   --color-error-50: #FEF2F2;
-  /* red-50 */
+  /* vermelho-50 */
   --color-error-100: #FEE2E2;
-  /* red-100 */
+  /* vermelho-100 */
   --color-error-500: #EF4444;
-  /* red-500 */
+  /* vermelho-500 */
   --color-error-600: #DC2626;
-  /* red-600 */
-  /* Border Colors */
+  /* vermelho-600 */
+  /* Cores de Borda */
   --color-border: #E2E8F0;
-  /* slate-200 */
-  /* Shadow Values */
+  /* ardósia-200 */
+  /* Valores de Sombra */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Animation Timing */
+  /* Sincronização da animação */
   --timing-fast: 150ms;
   --timing-normal: 300ms;
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1985,4 +2001,5 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 }
+
 
