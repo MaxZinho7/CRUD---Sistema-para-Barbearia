@@ -353,7 +353,7 @@ button,
 input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
-  -webkit-appearance: button;
+  
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -402,7 +402,7 @@ Corrige o estilo do cursor dos botões de incremento e decremento no Safari.
 
 
 [type='search'] {
-  -webkit-appearance: textfield;
+  
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -430,10 +430,9 @@ Remove o padding interno no Chrome e Safari no macOS.
   /* 2 */
 }
 
-Esses parecem ser comentários de código CSS. A tradução para o português é:
 
-> /*
-> **Adicione a exibição correta no Chrome e Safari.**
+
+ /* **Adicione a exibição correta no Chrome e Safari.**
 > */
 
 ---
@@ -450,7 +449,7 @@ summary {
 }
 
 
-> /*
+/*
 > **Remove o espaçamento e a borda padrão para os elementos apropriados.**
 > */
 
@@ -555,7 +554,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
+  
   /* 2 */
 }
 
@@ -2001,5 +2000,4 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 }
-
 
