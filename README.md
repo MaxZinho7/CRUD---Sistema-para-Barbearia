@@ -43,21 +43,6 @@ O objetivo não é apenas apresentar telas, mas sim estabelecer, de forma explí
 
 ---
 
-3. Funcionalidades Implementadas
-
-Até o momento, o sistema contém as seguintes funcionalidades e partes visuais:
-
-Página inicial da barbearia com informações básicas
-
-Estrutura de navegação entre páginas
-
-Layout inicial das seções (Home (que se clicar recarrega a página), produtos e contato)
-
-
-Ainda faltam funcionalidades como o agendamento, validação de formulários e armazenamento de dados.
-
----
-
 2. Arquitetura Geral e Estrutura de Arquivos
 
 O sistema utiliza uma arquitetura baseada na separação entre:
