@@ -9,35 +9,8 @@ O sistema é responsável pelo controle de:
 -Serviços: Gestão completa dos serviços oferecidos, incluindo a definição de preços.
 _______________________________________
 
-1. Descrição do Projeto
+ Descrição do Projeto
 
-O projeto consiste no desenvolvimento de um sistema de barbearia utilizando as linguagens HTML, CSS .
-O objetivo é criar uma base funcional que represente a estrutura principal do site, incluindo páginas, menus e seções, para futuras implementações como sistema de agendamento, cadastro de clientes e gerenciamento de horários.
-
-
----
-
-2. Objetivo
-
-O objetivo principal do projeto é desenvolver a base de um sistema web para uma barbearia, permitindo que, no futuro, os usuários possam realizar agendamentos, visualizar serviços e obter informações da barbearia.
-Nesta etapa, o grupo concentrou-se na construção da estrutura inicial e design do sistema.
-
----
-
-3. Funcionalidades Implementadas
-
-Até o momento, o sistema contém as seguintes funcionalidades e partes visuais:
-
-Página inicial da barbearia com informações básicas
-
-Estrutura de navegação entre páginas
-
-Layout inicial das seções (Home (que se clicar recarrega a página), produtos e contato)
-
-
-Ainda faltam funcionalidades como o agendamento, validação de formulários e armazenamento de dados.
-
----
 BarberShop Premium – 
 
 O BarberShop Premium é um sistema web desenvolvido com foco na modelagem, organização e representação estrutural de um ambiente digital destinado ao gerenciamento de uma barbearia. O projeto foi concebido com base em princípios de modularidade, clareza de interface, separação de responsabilidades e simulação de fluxos reais utilizados em sistemas de gestão de serviços.
@@ -45,10 +18,9 @@ Embora não se trate de um sistema conectado a um backend ou banco de dados, sua
 
 A seguir, apresenta-se uma documentação completa do sistema, descrevendo seus módulos, finalidades, estrutura interna, princípios de organização e relação entre as interfaces.
 
-
 ---
 
-1. Propósito Geral do Sistema
+ Objetivo
 
 O BarberShop Premium foi estruturado para demonstrar, de maneira clara e funcional, como um sistema de gerenciamento de barbearia pode ser organizado no contexto de um ambiente web. Ele contempla os principais pilares de um sistema moderno desse tipo:
 
@@ -69,6 +41,20 @@ Organização e visualização da agenda de trabalho
 
 O objetivo não é apenas apresentar telas, mas sim estabelecer, de forma explícita, como cada segmento do sistema se relaciona com os demais, permitindo ao avaliador compreender a arquitetura lógica e o fluxo operacional que sustenta o projeto.
 
+---
+
+3. Funcionalidades Implementadas
+
+Até o momento, o sistema contém as seguintes funcionalidades e partes visuais:
+
+Página inicial da barbearia com informações básicas
+
+Estrutura de navegação entre páginas
+
+Layout inicial das seções (Home (que se clicar recarrega a página), produtos e contato)
+
+
+Ainda faltam funcionalidades como o agendamento, validação de formulários e armazenamento de dados.
 
 ---
 
