@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Serviços - BarberShop Manager</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbarbershop3774back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navegação do cabeçalho -->
+    <header class="bg-surface shadow-card border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-semibold text-text-primary">BarberShop Premium</h1>
+                    </div>
+                </div>
+
+                <!-- Navegação -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="barber_dashboard.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
+                    <a href="client_management.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
+                        <i class="fas fa-users mr-2"></i>Clientes
+                    </a>
+                    <a href="service_management.html" class="text-primary font-medium px-3 py-2 rounded-md bg-primary-50">
+                        <i class="fas fa-cut mr-2"></i>Serviços
+                    </a>                    
+                </nav>
+
+                <!-- Menu do usuário -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:block text-right">
+                        <p class="text-sm font-medium text-text-primary">Carlos Mendes</p>
+                        <p class="text-xs text-text-secondary">Barbeiro</p>
+                    </div>
+                    <div class="relative">
+                        <img class="h-8 w-8 rounded-full object-cover" 
+                             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Foto do perfil do barbeiro Carlos"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Leitor de página -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+            <div>
+                <h2 class="text-3xl font-bold text-text-primary mb-2">Gerenciamento de Serviços</h2>
+                <p class="text-text-secondary">Configure preços e disponibilidade.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-0">
+                <button id="bulkPricingBtn" class="btn-secondary flex items-center justify-center px-4 py-2">
+                    <i class="fas fa-tags mr-2"></i>
+                    Preços em Lote
+                </button>
+                <button id="addServiceBtn" class="btn-primary flex items-center justify-center px-4 py-2">
+                    <i class="fas fa-plus mr-2"></i>
+                    Novo Serviço
+                </button>
+            </div>
+        </div>
+
+        <!-- Estatísticas de serviço -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-primary-50 text-primary mr-4">
+                        <i class="fas fa-cut text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Total de Serviços</p>
+                        <p class="text-2xl font-bold text-text-primary">32</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-success-50 text-success mr-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Receita Média</p>
+                        <p class="text-2xl font-bold text-text-primary">R$ 38,50</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-accent-50 text-accent mr-4">
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Mais Popular</p>
+                        <p class="text-lg font-bold text-text-primary">Corte + Barba</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-warning-50 text-warning mr-5">
+                        <i class="fas fa-clock text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Duração Média</p>
+                        <p class="text-2xl font-bold text-text-primary">45min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtro de categoria de serviços -->
+        <div class="mb-6">
+            <div class="flex flex-wrap gap-2">
+                <button class="category-filter active px-4 py-2 rounded-full text-sm font-medium bg-primary text-white" data-category="all">
+                    Todos os Serviços
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 hover:bg-secondary-200 transition-colors" data-category="cortes">
+                    <i class="fas fa-cut mr-2"></i>Cortes
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 hover:bg-secondary-200 transition-colors" data-category="barba">
+                    <i class="fas fa-user-tie mr-2"></i>Barba
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 hover:bg-secondary-200 transition-colors" data-category="styling">
+                    <i class="fas fa-magic mr-2"></i>Styling
+                </button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 hover:bg-secondary-200 transition-colors" data-category="pacotes">
+                    <i class="fas fa-gift mr-2"></i>Pacotes
+                </button>
+            </div>
+        </div>
+
+        <!-- Grade de serviços -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGrid">
+            <!-- Cartão de serviço 1 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="cortes">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-primary-50 text-primary mr-3">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Corte Masculino</h3>
+                            <span class="text-xs px-2 py-1 bg-success-50 text-success-600 rounded-full">Ativo</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                     
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Corte tradicional masculino com acabamento profissional</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>30 min</span>
+                    </div>
+                    <div class="text-lg font-bold text-primary">R$ 25,00</div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 1 este mês</span>
+                    <span class="flex items-center text-success">
+                        <i class="fas fa-arrow-up mr-1"></i>+12%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cartão de Serviço 2 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="cortes">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-accent-50 text-accent mr-3">
+                            <i class="fas fa-scissors"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Corte Degradê</h3>
+                            <span class="text-xs px-2 py-1 bg-success-50 text-success-600 rounded-full">Ativo</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Corte moderno com degradê lateral e acabamento detalhado</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>45 min</span>
+                    </div>
+                    <div class="text-lg font-bold text-primary">R$ 35,00</div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 2 este mês</span>
+                    <span class="flex items-center text-success">
+                        <i class="fas fa-arrow-up mr-1"></i>+8%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cartão de serviço 3 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="barba">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-secondary-100 text-secondary-600 mr-3">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Barba Completa</h3>
+                            <span class="text-xs px-2 py-1 bg-success-50 text-success-600 rounded-full">Ativo</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Aparar, modelar e finalizar barba com produtos premium</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>25 min</span>
+                    </div>
+                    <div class="text-lg font-bold text-primary">R$ 20,00</div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 1 este mês</span>
+                    <span class="flex items-center text-error">
+                        <i class="fas fa-arrow-down mr-1"></i>-3%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cartão de serviço 4 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="pacotes">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-success-50 text-success mr-3">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Corte + Barba</h3>
+                            <span class="text-xs px-2 py-1 bg-accent-50 text-accent-600 rounded-full">Popular</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Pacote completo: corte masculino + barba modelada</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>60 min</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm text-text-secondary line-through mr-2">R$ 45,00</span>
+                        <div class="text-lg font-bold text-primary">R$ 40,00</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 5 este mês</span>
+                    <span class="flex items-center text-success">
+                        <i class="fas fa-arrow-up mr-1"></i>+25%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cartão de serviço 5 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="styling">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-warning-50 text-warning mr-3">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Sobrancelha</h3>
+                            <span class="text-xs px-2 py-1 bg-success-50 text-success-600 rounded-full">Ativo</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Modelagem e acabamento profissional das sobrancelhas</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>15 min</span>
+                    </div>
+                    <div class="text-lg font-bold text-primary">R$ 15,00</div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 1 este mês</span>
+                    <span class="flex items-center text-success">
+                        <i class="fas fa-arrow-up mr-1"></i>+5%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cartão de serviço 6 -->
+            <div class="card service-card hover:shadow-md transition-shadow" data-category="styling">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="p-2 rounded-lg bg-error-50 text-error mr-3">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary">Lavagem + Styling</h3>
+                            <span class="text-xs px-2 py-1 bg-warning-50 text-warning-600 rounded-full">Inativo</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                    </div>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">Lavagem completa com produtos premium e finalização</p>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center text-sm text-text-secondary">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>20 min</span>
+                    </div>
+                    <div class="text-lg font-bold text-primary">R$ 18,00</div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-text-secondary">
+                    <span>Agendamentos: 0 este mês</span>
+                    <span class="flex items-center text-text-secondary">
+                        <i class="fas fa-pause mr-1"></i>Pausado
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de análise de receita -->
+        <section class="mt-12">
+            <div class="card">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-semibold text-text-primary flex items-center">
+                        <i class="fas fa-chart-bar text-primary mr-3"></i>
+                        Análise de Receita por Serviço
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Espaço reservado para gráfica de receita -->
+                    <div class="space-y-4">
+                        <h4 class="font-medium text-text-primary">Receita por Categoria</h4>
+                        <div class="h-64 bg-secondary-50 rounded-lg flex items-center justify-center border-2 border-dashed border-secondary-200">
+                            <div class="text-center">
+                                <i class="fas fa-chart-pie text-4xl text-secondary-400 mb-4"></i>
+                                <p class="text-secondary-500">Gráfico de Receita por Categoria</p>
+                                <p class="text-xs text-secondary-400 mt-2">Dados dos últimos 30 dias</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Principais serviços -->
+                    <div class="space-y-4">
+                        <h4 class="font-medium text-text-primary">Serviços Mais Rentáveis</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-primary-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Corte + Barba</p>
+                                        <p class="text-xs text-text-secondary">5 agendamentos</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-primary">R$ 200</p>
+                                    <p class="text-xs text-success">+25% vs mês anterior</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-secondary-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Corte Degradê</p>
+                                        <p class="text-xs text-text-secondary">2 agendamentos</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-primary">R$ 70</p>
+                                    <p class="text-xs text-success">+8% vs mês anterior</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Corte Masculino</p>
+                                        <p class="text-xs text-text-secondary">1 agendamentos</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-primary">R$ 25</p>
+                                    <p class="text-xs text-success">+12% vs mês anterior</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Navegação mobile -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-border">
+        <div class="flex justify-around py-2">
+            <a href="barber_dashboard.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-home text-lg mb-1"></i>
+                <span class="text-xs">Dashboard</span>
+            </a>
+            <a href="appointment_booking.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-calendar-plus text-lg mb-1"></i>
+                <span class="text-xs">Agendamentos</span>
+            </a>
+            <a href="client_management.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-users text-lg mb-1"></i>
+                <span class="text-xs">Clientes</span>
+            </a>
+            <a href="service_management.html" class="flex flex-col items-center py-2 px-3 text-primary">
+                <i class="fas fa-cut text-lg mb-1"></i>
+                <span class="text-xs">Serviços</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Adcionar modal de serviços -->
+    <div id="addServiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Novo Serviço</h3>
+                <button id="closeAddModal" class="text-text-secondary hover:text-text-primary">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Nome do Serviço</label>
+                        <input type="text" class="input-field" placeholder="Ex: Corte Masculino Premium">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Categoria</label>
+                        <select class="input-field">
+                            <option>Selecione uma categoria</option>
+                            <option value="cortes">Cortes</option>
+                            <option value="barba">Barba</option>
+                            <option value="styling">Styling</option>
+                            <option value="pacotes">Pacotes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Descrição</label>
+                    <textarea class="input-field" rows="3" placeholder="Descreva o serviço oferecido..."></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Preço (R$)</label>
+                        <input type="number" class="input-field" placeholder="0,00" step="0.01">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Duração (min)</label>
+                        <input type="number" class="input-field" placeholder="30" step="5">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Status</label>
+                        <select class="input-field">
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Barbeiros Especializados</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-3" checked>
+                            <span class="text-sm text-text-primary">Carlos Mendes</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-3">
+                            <span class="text-sm text-text-primary">Roberto Silva</span>
+                        </label>                       
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 pt-4">
+                    <button type="submit" class="btn-primary flex-1">Criar Serviço</button>
+                    <button type="button" id="cancelAddModal" class="btn-secondary flex-1">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Editar modal de serviço -->
+    <div id="editServiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Editar Serviço</h3>
+                <button id="closeEditModal" class="text-text-secondary hover:text-text-primary">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Nome do Serviço</label>
+                        <input type="text" class="input-field" value="Corte Masculino">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Categoria</label>
+                        <select class="input-field">
+                            <option value="cortes" selected>Cortes</option>
+                            <option value="barba">Barba</option>
+                            <option value="styling">Styling</option>
+                            <option value="pacotes">Pacotes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Descrição</label>
+                    <textarea class="input-field" rows="3">Corte tradicional masculino com acabamento profissional</textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Preço (R$)</label>
+                        <input type="number" class="input-field" value="25.00" step="0.01">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Duração (min)</label>
+                        <input type="number" class="input-field" value="30" step="5">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-primary mb-2">Status</label>
+                        <select class="input-field">
+                            <option value="ativo" selected>Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Histórico de preços -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Histórico de Preços</label>
+                    <div class="bg-secondary-50 rounded-lg p-4">
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">26/10/2025</span>
+                                <span class="font-medium text-text-primary">R$ 25,00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">15/09/2025</span>
+                                <span class="text-text-secondary">R$ 22,00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">01/08/2025</span>
+                                <span class="text-text-secondary">R$ 20,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 pt-4">
+                    <button type="submit" class="btn-primary flex-1">Salvar Alterações</button>
+                    <button type="button" id="cancelEditModal" class="btn-secondary flex-1">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modelos de preços em massa -->
+    <div id="bulkPricingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-lg w-full">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Atualização de Preços em Lote</h3>
+                <button id="closeBulkModal" class="text-text-secondary hover:text-text-primary">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Categoria</label>
+                    <select class="input-field">
+                        <option>Todos os serviços</option>
+                        <option value="cortes">Cortes</option>
+                        <option value="barba">Barba</option>
+                        <option value="styling">Styling</option>
+                        <option value="pacotes">Pacotes</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Tipo de Ajuste</label>
+                    <select class="input-field" id="adjustmentType">
+                        <option value="percentage">Percentual (%)</option>
+                        <option value="fixed">Valor Fixo (R$)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Valor do Ajuste</label>
+                    <input type="number" class="input-field" placeholder="10" step="0.01">
+                    <p class="text-xs text-text-secondary mt-1">Use valores negativos para reduzir preços</p>
+                </div>
+
+                <div class="bg-warning-50 border border-warning-200 rounded-lg p-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-exclamation-triangle text-warning mr-3 mt-1"></i>
+                        <div>
+                            <p class="text-sm font-medium text-warning-600">Atenção</p>
+                            <p class="text-xs text-warning-600 mt-1">Esta ação irá alterar os preços de múltiplos serviços. Confirme antes de prosseguir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 pt-4">
+                    <button type="submit" class="btn-primary flex-1">Aplicar Alterações</button>
+                    <button type="button" id="cancelBulkModal" class="btn-secondary flex-1">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidade modal
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adcionar modal de serviços
+            const addServiceBtn = document.getElementById('addServiceBtn');
+            const addServiceModal = document.getElementById('addServiceModal');
+            const closeAddModal = document.getElementById('closeAddModal');
+            const cancelAddModal = document.getElementById('cancelAddModal');
+
+            addServiceBtn.addEventListener('click', function() {
+                addServiceModal.classList.remove('hidden');
+                addServiceModal.classList.add('flex');
+            });
+
+            [closeAddModal, cancelAddModal].forEach(btn => {
+                btn.addEventListener('click', function() {
+                    addServiceModal.classList.add('hidden');
+                    addServiceModal.classList.remove('flex');
+                });
+            });
+
+            // Editar modal de serviços
+            const editServiceModal = document.getElementById('editServiceModal');
+            const closeEditModal = document.getElementById('closeEditModal');
+            const cancelEditModal = document.getElementById('cancelEditModal');
+
+            [closeEditModal, cancelEditModal].forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editServiceModal.classList.add('hidden');
+                    editServiceModal.classList.remove('flex');
+                });
+            });
+
+            // Modelo de preços em massa
+            const bulkPricingBtn = document.getElementById('bulkPricingBtn');
+            const bulkPricingModal = document.getElementById('bulkPricingModal');
+            const closeBulkModal = document.getElementById('closeBulkModal');
+            const cancelBulkModal = document.getElementById('cancelBulkModal');
+
+            bulkPricingBtn.addEventListener('click', function() {
+                bulkPricingModal.classList.remove('hidden');
+                bulkPricingModal.classList.add('flex');
+            });
+
+            [closeBulkModal, cancelBulkModal].forEach(btn => {
+                btn.addEventListener('click', function() {
+                    bulkPricingModal.classList.add('hidden');
+                    bulkPricingModal.classList.remove('flex');
+                });
+            });
+
+            // Filtro de categoria
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Atualizar filtro ativo
+                    categoryFilters.forEach(f => {
+                        f.classList.remove('active', 'bg-primary', 'text-white');
+                        f.classList.add('bg-secondary-100', 'text-secondary-700');
+                    });
+                    
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('bg-secondary-100', 'text-secondary-700');
+
+                    // Filtrar cartões de serviço
+                    serviceCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Fechar modal ao clicar fora
+            [addServiceModal, editServiceModal, bulkPricingModal].forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                    }
+                });
+            });
+        });
+
+        // Editar função de serviço
+        function editService(serviceId) {
+            const editServiceModal = document.getElementById('editServiceModal');
+            editServiceModal.classList.remove('hidden');
+            editServiceModal.classList.add('flex');
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>

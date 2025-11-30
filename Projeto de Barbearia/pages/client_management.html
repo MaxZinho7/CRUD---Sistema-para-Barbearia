@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Clientes - BarberShop Premium</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbarbershop3774back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Menu de navegação do cabeçalho -->
+    <header class="bg-surface shadow-card border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-semibold text-text-primary">BarberShop Premium</h1>
+                    </div>
+                </div>
+
+                <!-- Navegação -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="barber_dashboard.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
+                    <a href="client_management.html" class="text-primary font-medium px-3 py-2 rounded-md bg-primary-50">
+                        <i class="fas fa-users mr-2"></i>Clientes
+                    </a>
+                    <a href="service_management.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md hover:bg-primary-50">
+                        <i class="fas fa-cut mr-2"></i>Serviços
+                    </a>                   
+                </nav>
+
+                <!-- Menu do usuário -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:block text-right">
+                        <p class="text-sm font-medium text-text-primary">Carlos Mendes</p>
+                        <p class="text-xs text-text-secondary">Barbeiro</p>
+                    </div>
+                    <div class="relative">
+                        <img class="h-8 w-8 rounded-full object-cover" 
+                             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Foto do perfil do barbeiro Carlos Mendes"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Leitor de página -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-text-primary mb-2">Gerenciamento de Clientes</h2>
+                    <p class="text-text-secondary">Gerencie relacionamentos e histórico de serviços dos seus clientes</p>
+                </div>
+                <div class="mt-4 sm:mt-0">
+               </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Área do conteúdo principal -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Pesquisa e filtros -->
+                <section class="card">
+                    <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                        <!-- Barra de pesquisa -->
+                        <div class="flex-1 relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-text-secondary"></i>
+                            </div>
+                            <input type="text" 
+                                   class="input-field pl-10" 
+                                   placeholder="Buscar clientes por nome, telefone ou email..."
+                                   id="clientSearch">
+                        </div>
+                        
+                        <!-- Botões de filtro -->
+                        <div class="flex flex-wrap gap-2">
+                            <button class="btn-secondary text-sm" id="filterAll">
+                                <i class="fas fa-users mr-1"></i>Todos (3)
+                            </button>
+                        </div>
+                    <!-- Painel de filtro avançado(escondido por padrão) -->
+                    <div id="advancedFilterPanel" class="hidden mt-4 pt-4 border-t border-border">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Frequência de Visitas</label>
+                                <select class="input-field">
+                                    <option>Todas</option>
+                                    <option>Semanal</option>
+                                    <option>Quinzenal</option>
+                                    <option>Mensal</option>
+                                    <option>Esporádica</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Gasto Médio</label>
+                                <select class="input-field">
+                                    <option>Todos</option>
+                                    <option>Até R$ 50</option>
+                                    <option>R$ 50 - R$ 100</option>
+                                    <option>R$ 100 - R$ 200</option>
+                                    <option>Acima de R$ 200</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Serviço Preferido</label>
+                                <select class="input-field">
+                                    <option>Todos</option>
+                                    <option>Corte</option>
+                                    <option>Barba</option>
+                                    <option>Corte + Barba</option>
+                                    <option>Tratamentos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-4 space-x-2">
+                            <button class="btn-secondary text-sm">Limpar Filtros</button>
+                            <button class="btn-primary text-sm">Aplicar Filtros</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Diretório do cliente -->
+                <section class="space-y-4" id="clientDirectory">
+                    <!-- Cartão do cliente 1 -->
+                    <div class="card hover:shadow-md transition-shadow client-card">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                            <!-- Informação do cliente -->
+                            <div class="flex items-center flex-1">
+                                <img class="h-12 w-12 rounded-full object-cover mr-4" 
+                                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     alt="Foto do cliente João Silva"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-1">
+                                        <h3 class="font-semibold text-text-primary mr-2">João Silva</h3>
+                                        <span class="status-success px-2 py-1 rounded-full text-xs font-medium">VIP</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center text-sm text-text-secondary space-y-1 sm:space-y-0 sm:space-x-4">
+                                        <span><i class="fas fa-phone mr-1"></i>(11) 99999-8888</span>
+                                        <span><i class="fas fa-envelope mr-1"></i>joao.silva@email.com</span>
+                                        <span><i class="fas fa-calendar mr-1"></i>Última visita: 30/11/2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="flex items-center space-x-6 text-center">
+                                <div>
+                                    <div class="text-lg font-semibold text-primary">23</div>
+                                    <div class="text-xs text-text-secondary">Visitas</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-accent">R$ 750</div>
+                                    <div class="text-xs text-text-secondary">Total Gasto</div>
+                                </div>
+                                <div class="flex text-accent-500">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+
+                            <!-- Ações -->
+                            <div class="flex items-center space-x-2">
+                                <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('João Silva')">
+                                    <i class="fas fa-calendar-plus mr-1"></i>Agendar
+                                </button>
+                                <button class="text-text-secondary hover:text-primary px-2 py-1 rounded transition-colors">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Detalhes expansíveis -->
+                        <div class="client-details hidden mt-4 pt-4 border-t border-border">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-medium text-text-primary mb-2">Serviços Preferidos</h4>
+                                    <div class="space-y-1">
+                                        <span class="inline-block bg-primary-50 text-primary px-2 py-1 rounded text-xs mr-1">Corte + Barba</span>
+                                        <span class="inline-block bg-primary-50 text-primary px-2 py-1 rounded text-xs mr-1">Sobrancelha</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-text-primary mb-2">Observações</h4>
+                                    <p class="text-sm text-text-secondary">Cliente prefere cortes mais conservadores. Alérgico a produtos com álcool.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cartão do cliente 2 -->
+                    <div class="card hover:shadow-md transition-shadow client-card">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                            <!-- Informação do cliente -->
+                            <div class="flex items-center flex-1">
+                                <img class="h-12 w-12 rounded-full object-cover mr-4" 
+                                     src="https://i.pinimg.com/originals/95/16/4d/95164d4cefe32883559eb4bff1705a0b.jpg" 
+                                     alt="Foto do cliente Pedro Santos"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-1">
+                                        <h3 class="font-semibold text-text-primary mr-2">Pedro Santos</h3>
+                                        <span class="status-warning px-2 py-1 rounded-full text-xs font-medium">Regular</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center text-sm text-text-secondary space-y-1 sm:space-y-0 sm:space-x-4">
+                                        <span><i class="fas fa-phone mr-1"></i>(11) 98888-7777</span>
+                                        <span><i class="fas fa-envelope mr-1"></i>pedro.santos@email.com</span>
+                                        <span><i class="fas fa-calendar mr-1"></i>Última visita: 27/11/2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="flex items-center space-x-6 text-center">
+                                <div>
+                                    <div class="text-lg font-semibold text-primary">8</div>
+                                    <div class="text-xs text-text-secondary">Visitas</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-accent">R$ 150</div>
+                                    <div class="text-xs text-text-secondary">Total Gasto</div>
+                                </div>
+                                <div class="flex text-accent-500">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+
+                            <!-- Ações -->
+                            <div class="flex items-center space-x-2">
+                                <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('Pedro Santos')">
+                                    <i class="fas fa-calendar-plus mr-1"></i>Agendar
+                                </button>
+                               <button class="text-text-secondary hover:text-primary px-2 py-1 rounded transition-colors">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cartão do cliente 3 -->
+                    <div class="card hover:shadow-md transition-shadow client-card">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                            <!-- Informação do cliente -->
+                            <div class="flex items-center flex-1">
+                                <img class="h-12 w-12 rounded-full object-cover mr-4" 
+                                     src="https://i.pinimg.com/736x/d9/37/e3/d937e380409ff9ec9dccc4fa6f1e3da2.jpg" 
+                                     alt="Foto do cliente Carlos Oliveira"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-1">
+                                        <h3 class="font-semibold text-text-primary mr-2">Carlos Oliveira</h3>
+                                        <span class="bg-secondary-100 text-secondary-600 px-2 py-1 rounded-full text-xs font-medium">Novo</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center text-sm text-text-secondary space-y-1 sm:space-y-0 sm:space-x-4">
+                                        <span><i class="fas fa-phone mr-1"></i>(11) 97777-6666</span>
+                                        <span><i class="fas fa-envelope mr-1"></i>carlos.oliveira@email.com</span>
+                                        <span><i class="fas fa-calendar mr-1"></i>Primeira visita: 1/12/2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="flex items-center space-x-6 text-center">
+                                <div>
+                                    <div class="text-lg font-semibold text-primary">1</div>
+                                    <div class="text-xs text-text-secondary">Visitas</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-accent">R$ 30</div>
+                                    <div class="text-xs text-text-secondary">Total Gasto</div>
+                                </div>
+                                <div class="flex text-secondary-300">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+
+                            <!-- Ações -->
+                            <div class="flex items-center space-x-2">
+                                <button class="btn-primary text-sm px-3 py-1" onclick="scheduleAppointment('Carlos Oliveira')">
+                                    <i class="fas fa-calendar-plus mr-1"></i>Agendar
+                                </button>
+                               <button class="text-text-secondary hover:text-primary px-2 py-1 rounded transition-colors">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Paginação -->
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-text-secondary">
+                        Mostrando 1-3 de 3 clientes
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="btn-primary text-sm px-3 py-1">1</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barra lateral de análises -->
+            <div class="space-y-6">
+                <!-- Analíses de cliente -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                        <i class="fas fa-chart-bar text-primary mr-2"></i>
+                        Análise de Clientes
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Total de Clientes</span>
+                            <span class="font-semibold text-text-primary">4</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Clientes Ativos</span>
+                            <span class="font-semibold text-success">3</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Novos este Mês</span>
+                            <span class="font-semibold text-primary">2</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Taxa de Retenção</span>
+                            <span class="font-semibold text-accent">89%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Análises de receita -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                        <i class="fas fa-dollar-sign text-accent mr-2"></i>
+                        Receita por Cliente
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-2 bg-accent-50 rounded-lg">
+                            <span class="text-sm font-medium text-text-primary">Ticket Médio</span>
+                            <span class="font-semibold text-accent">R$ 52,30</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Maior Gasto</span>
+                            <span class="font-semibold text-primary">R$ 750</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Receita Total</span>
+                            <span class="font-semibold text-success">R$ 930</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Serviços populares -->
+                <section class="card">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
+                        <i class="fas fa-cut text-primary mr-2"></i>
+                        Serviços Populares
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-primary">Corte + Barba</span>
+                            <div class="flex items-center">
+                                <div class="w-16 bg-secondary-200 rounded-full h-2 mr-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="text-xs text-text-secondary">85%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-primary">Corte Simples</span>
+                            <div class="flex items-center">
+                                <div class="w-16 bg-secondary-200 rounded-full h-2 mr-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <span class="text-xs text-text-secondary">65%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-primary">Barba</span>
+                            <div class="flex items-center">
+                                <div class="w-16 bg-secondary-200 rounded-full h-2 mr-2">
+                                    <div class="bg-success h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <span class="text-xs text-text-secondary">45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    </main>
+
+    <!-- Navegação Mobile -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-border">
+        <div class="flex justify-around py-2">
+            <a href="barber_dashboard.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-home text-lg mb-1"></i>
+                <span class="text-xs">Dashboard</span>
+            </a>
+            <a href="appointment_booking.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-calendar-plus text-lg mb-1"></i>
+                <span class="text-xs">Agendamentos</span>
+            </a>
+            <a href="client_management.html" class="flex flex-col items-center py-2 px-3 text-primary">
+                <i class="fas fa-users text-lg mb-1"></i>
+                <span class="text-xs">Clientes</span>
+            </a>
+            <a href="service_management.html" class="flex flex-col items-center py-2 px-3 text-text-secondary">
+                <i class="fas fa-cut text-lg mb-1"></i>
+                <span class="text-xs">Serviços</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Modal do perfil do cliente -->
+    <div id="clientProfileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Perfil do Cliente</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeClientProfile()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="clientProfileContent">
+                <!-- Conteúdo vai ser carregado dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Adcionar modal do cliente -->
+    <div id="addClientModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-md w-full">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-text-primary">Adicionar Novo Cliente</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeAddClient()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Nome Completo</label>
+                    <input type="text" class="input-field" placeholder="Digite o nome completo">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Telefone</label>
+                    <input type="tel" class="input-field" placeholder="(11) 99999-9999">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Email</label>
+                    <input type="email" class="input-field" placeholder="cliente@email.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Observações</label>
+                    <textarea class="input-field" rows="3" placeholder="Preferências, alergias, etc."></textarea>
+                </div>
+                <div class="flex space-x-3 pt-4">
+                    <button type="submit" class="btn-primary flex-1">Adicionar Cliente</button>
+                    <button type="button" class="btn-secondary flex-1" onclick="closeAddClient()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Procurar funcionalidades
+        document.getElementById('clientSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const clientCards = document.querySelectorAll('.client-card');
+            
+            clientCards.forEach(card => {
+                const clientName = card.querySelector('h3').textContent.toLowerCase();
+                const clientPhone = card.querySelector('.fa-phone').parentElement.textContent.toLowerCase();
+                const clientEmail = card.querySelector('.fa-envelope').parentElement.textContent.toLowerCase();
+                
+                if (clientName.includes(searchTerm) || clientPhone.includes(searchTerm) || clientEmail.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Alternar filtros avançados
+        document.getElementById('advancedFilters').addEventListener('click', function() {
+            const panel = document.getElementById('advancedFilterPanel');
+            panel.classList.toggle('hidden');
+        });
+
+        // Botões de filtro
+        document.querySelectorAll('[id^="filter"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remover estado ativo de todos os botões de filtro
+                document.querySelectorAll('[id^="filter"]').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('btn-secondary');
+                });
+                
+                // Adicionar estado ativo ao botão clicado
+                this.classList.remove('btn-secondary');
+                this.classList.add('bg-primary', 'text-white');
+            });
+        });
+
+        // Expandir/recolher cartão do cliente
+        document.querySelectorAll('.client-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('button')) {
+                    const details = this.querySelector('.client-details');
+                    details.classList.toggle('hidden');
+                }
+            });
+        });
+
+        // Funções moldais
+        function scheduleAppointment(clientName) {
+            alert(`Agendando consulta para ${clientName}`);
+            // Em um app real, isso abriria o modal de agendamento de consultas
+        }
+
+        function viewClientProfile(clientId) {
+            const modal = document.getElementById('clientProfileModal');
+            const content = document.getElementById('clientProfileContent');
+            
+            // Conteúdo de perfil fictício
+            content.innerHTML = `
+                <div class="flex items-center mb-6">
+                    <img class="h-16 w-16 rounded-full object-cover mr-4" 
+                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Foto do perfil do cliente">
+                    <div>
+                        <h4 class="text-lg font-semibold text-text-primary">João Silva</h4>
+                        <p class="text-text-secondary">Cliente VIP desde Janeiro 2024</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h5 class="font-medium text-text-primary mb-3">Informações de Contato</h5>
+                        <div class="space-y-2 text-sm">
+                            <p><i class="fas fa-phone mr-2 text-text-secondary"></i>(11) 99999-8888</p>
+                            <p><i class="fas fa-envelope mr-2 text-text-secondary"></i>joao.silva@email.com</p>
+                            <p><i class="fas fa-map-marker-alt mr-2 text-text-secondary"></i>São Paulo, SP</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h5 class="font-medium text-text-primary mb-3">Estatísticas</h5>
+                        <div class="space-y-2 text-sm">
+                            <p>Total de visitas: <span class="font-semibold">23</span></p>
+                            <p>Gasto total: <span class="font-semibold text-accent">R$ 1.150,00</span></p>
+                            <p>Última visita: <span class="font-semibold">15/10/2025</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h5 class="font-medium text-text-primary mb-3">Histórico de Serviços</h5>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center p-2 bg-secondary-50 rounded">
+                            <span class="text-sm">Corte + Barba</span>
+                            <span class="text-sm text-text-secondary">15/10/2025</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 bg-secondary-50 rounded">
+                            <span class="text-sm">Corte + Sobrancelha</span>
+                            <span class="text-sm text-text-secondary">28/09/2025</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeClientProfile() {
+            const modal = document.getElementById('clientProfileModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function closeAddClient() {
+            const modal = document.getElementById('addClientModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Adcionar botão do cliente
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            if (this.textContent.includes('Adicionar Cliente')) {
+                const modal = document.getElementById('addClientModal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        });
+
+        // Fechar moldais quando clicado fora
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('bg-black')) {
+                closeClientProfile();
+                closeAddClient();
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>
