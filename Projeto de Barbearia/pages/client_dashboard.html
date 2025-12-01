@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+   
+</script>
+
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Cliente - BarberShop </title>
@@ -96,7 +105,7 @@
                                         </span>
                                         <span class="text-sm text-text-secondary">1/12/2025</span>
                                     </div>
-                                    <h4 class="font-semibold text-text-primary mb-1">Corte + Barba</h4>
+                                    <h4 class="font-semibold text-text-primary mb-1">Combo Completo</h4>
                                     <div class="flex items-center text-sm text-text-secondary mb-2">
                                         <i class="fas fa-clock mr-2"></i>
                                         <span>14:30 - 15:30</span>
@@ -202,7 +211,7 @@
                                     <div class="flex items-center text-sm text-text-secondary mb-2">
                                         <i class="fas fa-user mr-2"></i>
                                         <span>Carlos Mendes</span>
-                                        <span class="ml-4 font-semibold text-primary">R$ 25,00</span>
+                                        <span class="ml-4 font-semibold text-primary">R$ 22,00</span>
                                     </div>
                                     <div class="flex items-center">
                                         <div class="flex text-accent-500 mr-2">
@@ -409,7 +418,36 @@
         });
     </script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+<script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+    if (!usuario) {
+        window.location.href = "./login.html";
+    }
+
+    // impedindo login errado
+    const pagina = window.location.pathname;
+
+    if (pagina.includes("barber") && usuario.tipo !== "barbeiro") {
+        window.location.href = "./client_dashboard.html";
+    }
+
+    if (pagina.includes("client") && usuario.tipo !== "cliente") {
+        window.location.href = "./barber_dashboard.html";
+    }
+</script>
+
+<script>
+    // Bloquear Back/Forward cache (bfcache)
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+
+
 </body>
 </html>
-
 
