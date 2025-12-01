@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Horários - BarberShop Premium</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f3f4f6;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .schedule-slot {
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .schedule-slot.available {
+      background: #e5ffe5;
+      color: #2d7a2d;
+      border: 1px solid #a4d3a4;
+    }
+
+    .schedule-slot.booked {
+      background: #ffe5e5;
+      color: #a32d2d;
+      border: 1px solid #e0a4a4;
+    }
+
+    .schedule-slot.break {
+      background: #fff7e5;
+      color: #b2872d;
+      border: 1px solid #e5cfa4;
+    }
+
+    .schedule-slot.blocked {
+      background: #f0f0f0;
+      color: #888;
+      border: 1px solid #ccc;
+      cursor: not-allowed;
+    }
+
+    .schedule-slot:hover:not(.blocked) {
+      transform: scale(1.05);
+    }
+
+    button {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #555;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+    }
+
+    .modal-content select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>BarberShop Premium - Gerenciamento de Horários</header>
+
+  <div class="container">
+    <h2>Agenda do Dia</h2>
+    <div class="schedule">
+      <div class="schedule-slot available">08:00</div>
+      <div class="schedule-slot booked">09:00</div>
+      <div class="schedule-slot available">10:00</div>
+      <div class="schedule-slot break">11:00</div>
+      <div class="schedule-slot blocked">12:00</div>
+      <div class="schedule-slot available">13:00</div>
+      <div class="schedule-slot booked">14:00</div>
+      <div class="schedule-slot available">15:00</div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="statusModal" class="modal">
+    <div class="modal-content">
+      <h3>Alterar Status</h3>
+      <select id="statusSelect">
+        <option value="available">Disponível</option>
+        <option value="booked">Agendado</option>
+        <option value="break">Intervalo</option>
+        <option value="blocked">Bloqueado</option>
+      </select>
+      <button id="saveStatus">Salvar</button>
+    </div>
+  </div>
+
+  <script>
+    const slots = document.querySelectorAll('.schedule-slot');
+    const modal = document.getElementById('statusModal');
+    const statusSelect = document.getElementById('statusSelect');
+    const saveButton = document.getElementById('saveStatus');
+    let currentSlot = null;
+
+    // abre modal ao clicar em horário
+    slots.forEach(slot => {
+      slot.addEventListener('click', () => {
+        if (slot.classList.contains('blocked')) return;
+        currentSlot = slot;
+        modal.style.display = 'flex';
+      });
+    });
+
+    // fecha modal ao clicar fora
+    window.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+
+    // salva alteração
+    saveButton.addEventListener('click', () => {
+      if (currentSlot) {
+        currentSlot.className = 'schedule-slot ' + statusSelect.value;
+      }
+      modal.style.display = 'none';
+    });
+  </script>
+
+<script src="../app.js"></script>
+
+</body>
+</html>
