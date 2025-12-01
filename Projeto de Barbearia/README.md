@@ -9,7 +9,7 @@ O sistema é responsável pelo controle de:
 -Serviços: Gestão completa dos serviços oferecidos, incluindo a definição de preços.
 _______________________________________
 
- Descrição do Projeto
+ Documentação do projeto:
 
 BarberShop Premium – 
 
@@ -19,323 +19,539 @@ Embora não se trate de um sistema conectado a um backend ou banco de dados, sua
 A seguir, apresenta-se uma documentação completa do sistema, descrevendo seus módulos, finalidades, estrutura interna, princípios de organização e relação entre as interfaces.
 
 ---
-
- Objetivo
-
-O BarberShop Premium foi estruturado para demonstrar, de maneira clara e funcional, como um sistema de gerenciamento de barbearia pode ser organizado no contexto de um ambiente web. Ele contempla os principais pilares de um sistema moderno desse tipo:
-
-Interface de encaminhamento entre perfis distintos
-
-Módulo administrativo destinado ao barbeiro
-
-Módulo de interação do cliente com os serviços
-
-Sistema de agendamentos
-
-Cadastro e gerenciamento de clientes
-
-Gerenciamento de serviços
-
-Organização e visualização da agenda de trabalho
-
-
-O objetivo não é apenas apresentar telas, mas sim estabelecer, de forma explícita, como cada segmento do sistema se relaciona com os demais, permitindo ao avaliador compreender a arquitetura lógica e o fluxo operacional que sustenta o projeto.
-
+📘 Documentação Completa – Sistema de Barbearia
 ---
 
-2. Arquitetura Geral e Estrutura de Arquivos
+📌 1. Introdução
 
-O sistema utiliza uma arquitetura baseada na separação entre:
+Este projeto consiste em um sistema web para uma barbearia, desenvolvido utilizando HTML, CSS e JavaScript. O objetivo principal é construir uma interface funcional, organizada e moderna, apresentando páginas que simulam o fluxo real de navegação de um sistema completo.
 
-HTML (estrutura das páginas)
-
-CSS/Tailwind (estilização e organização visual)
-
-JavaScript (comportamentos e interações essenciais)
-
-
-A divisão do projeto em múltiplos arquivos e páginas independentes segue o princípio de modularização, permitindo que cada área funcional exista isoladamente, representando um setor do sistema completo.
-
-Arquivos principais incluídos:
-
-index.html – Página inicial do sistema
-
-client_dashboard.html – Painel do cliente
-
-barber_dashboard.html – Painel administrativo do barbeiro
-
-appointment_booking.html – Sistema de agendamento
-
-service_management.html – Gerenciamento de serviços
-
-schedule_management.html – Gerenciamento de agenda
-
-client_management.html – Gerenciamento de clientes
-
-main.css – Estilos adicionais
-
-Arquivos JS responsáveis por interações básicas e controle de navegação
-
-
-A clara divisão entre funcionalidades permite avaliar a estrutura geral do sistema como um conjunto coerente de módulos integráveis, mesmo que, nesta versão, atuem como representações estáticas.
+Embora o projeto atual esteja implementado apenas no front-end, toda a estrutura foi planejada para comportar um backend real futuramente, incluindo fluxo de login, simulação de dados e organização modular.
 
 
 ---
 
-3. Página Inicial – index.html
+📁 2. Estrutura Geral do Projeto
 
-A página inicial desempenha o papel de ponto de entrada do sistema, concentrando-se no encaminhamento de usuários aos painéis apropriados.
-Ela oferece dois caminhos principais:
-
-Acesso ao Painel do Cliente
-
-Acesso ao Painel do Barbeiro
-
-
-Sua função é essencialmente estrutural e conceitual, funcionando como uma tela de credenciamento simplificada.
-Embora não haja autenticação implementada, a separação entre perfis reforça o conceito de sistemas com níveis diferentes de acesso.
-
-Além disso, a página inicial estabelece a identidade visual do projeto, apresentando:
-
-Título institucional do sistema
-
-Breve apresentação textual
-
-Layout responsivo orientado à simplicidade
-
-
-Do ponto de vista de design e UX, atua como uma interface objetiva, minimizando ruídos visuais e destacando apenas as possibilidades de navegação.
+Projeto de Barbearia/
+│── index.html
+│── servicos.html
+│── agendamentos.html
+│── cadastro.html
+│── login.html
+│── sobre.html
+│── contato.html
+│── dados.json
+│
+├── css/
+│    └── style.css
+│
+├── js/
+│    └── script.js
+│
+└── img/
+     └── (imagens utilizadas no site)
 
 
 ---
 
-4. Painel do Cliente – client_dashboard.html
+📌 3. Explicação de Cada Pasta e Arquivo
 
-O painel do cliente representa a interface destinada ao público consumidor da barbearia.
-Sua função é simular as informações que um cliente teria acesso dentro de um sistema real, como:
+3.1. index.html – Página Inicial
 
-Serviços disponíveis
+A página principal do projeto.
+Ela contém:
 
-Status de agendamentos
+Loader de carregamento da página
 
-Acesso ao módulo de marcação
+Banner principal
 
-Informações sobre o atendimento
+Seções de apresentação
 
-
-A página utiliza elementos visuais como:
-
-Cards para apresentação de serviços
-
-Botões de acesso rápido
-
-Estrutura de navegação minimalista
+Links para navegar para os demais módulos
 
 
-O objetivo é aproximar o usuário final da interface sem gerar complexidade.
-Esta página evidencia o comportamento do sistema voltado ao cliente dentro de plataformas de agendamento, muito comuns em salões, clínicas e prestadores de serviço em geral.
+Tags principais utilizadas aqui:
+
+<header> – Cabeçalho da página
+
+<nav> – Menu de navegação
+
+<section> – Divisões semânticas
+
+<div> – Estruturação comum
+
+<img> – Imagens da barbearia
+
+<footer> – Rodapé
 
 
----
-
-5. Painel do Barbeiro – barber_dashboard.html
-
-O painel do barbeiro é uma das partes mais importantes do sistema, pois representa o núcleo administrativo da barbearia.
-Ele concentra visualizações e acessos essenciais, tais como:
-
-Lista de agendamentos do dia
-
-Acesso direto aos módulos de gerenciamento
-
-Dados operacionais que auxiliam na organização do trabalho diário
-
-
-A disposição dos elementos nesta interface segue princípios de dashboards administrativos:
-
-1. Facilidade de interpretação: informações apresentadas de forma clara e imediata
-
-
-2. Navegação otimizada: atalhos diretos para áreas críticas
-
-
-3. Estrutura visual limpa: evitando distrações e priorizando o uso funcional
-
-
-
-Esse módulo demonstra como sistemas comerciais organizam suas páginas administrativas, aproximando os conceitos de UX utilizados por grandes plataformas do mercado.
+O JavaScript controla efeitos simples e o carregamento inicial.
 
 
 ---
 
-6. Sistema de Agendamento – appointment_booking.html
+3.2. servicos.html – Lista de Serviços
 
-O módulo de agendamento é responsável por simular o fluxo de marcação de horário.
-Ele permite ao usuário:
+Exibe os serviços disponíveis na barbearia, como cortes, barba e pacotes combinados.
 
-Selecionar o serviço desejado
+Elementos importantes:
 
-Escolher um horário disponível
+Cards de serviços
 
-Revisar suas opções antes da confirmação
+Estrutura baseada em <section> e <div>
 
+Layout responsivo definido pelo CSS
 
-A estrutura da página foi construída para refletir a lógica operacional dos sistemas reais:
-
-1. Seleção de serviço
-
-
-2. Alocação de horário
-
-
-3. Confirmação do agendamento
-
-
-
-Mesmo sem backend, a criação da interface reforça os conceitos de:
-
-Encadeamento lógico
-
-Tomada de decisão em etapas
-
-Organização de fluxo por interfaces sequenciais
-
-
-Este módulo é fundamental para demonstrar a compreensão do processo completo de atendimento, desde a intenção do cliente até a formalização da reserva.
 
 
 ---
 
-7. Gerenciamento de Serviços – service_management.html
+3.3. agendamentos.html
 
-O módulo de serviços apresenta os itens oferecidos pela barbearia, como:
+Página destinada aos agendamentos.
+Aqui ficaria, futuramente, a parte do CRUD para criar, visualizar, atualizar e excluir agendamentos.
 
-Corte
+Atualmente:
 
-Barba
+Estrutura da tabela
 
-Corte + Barba
+Botões fictícios de ação
 
-Serviços adicionais conforme aplicável
-
-
-A interface inclui visualização clara de:
-
-Nome do serviço
-
-Descrição
-
-Valor
-
-Opções de gerenciamento
+Campos de formulário
 
 
-A estrutura é organizada em cards administrativos, reforçando a lógica de sistemas de catálogos internos.
-Apesar de estático, o módulo reflete a forma como barbearias e sistemas de gestão apresentam e organizam seus serviços para controle interno.
+Elementos HTML usados:
+
+<form>
+
+<input>
+
+<button>
+
+<table>
+
+<tr> <td> <th>
 
 
----
-
-8. Gerenciamento de Agenda – schedule_management.html
-
-Este módulo representa a área onde o barbeiro organiza seus horários de trabalho.
-Ele é funcionalmente importante, pois demonstra:
-
-A lógica de horários disponíveis
-
-Intervalos de atendimento
-
-Controle do fluxo de agendamentos
-
-
-A página simula um calendário simplificado, apresentando blocos de horários com indicação de disponibilidade.
-Do ponto de vista da modelagem conceitual, essa interface representa o coração do sistema de marcações, reforçando como a agenda se relaciona com o módulo de agendamentos.
+O JavaScript pode futuramente manipular os dados da tabela usando dados reais.
 
 
 ---
 
-9. Gerenciamento de Clientes – client_management.html
+3.4. cadastro.html
 
-A interface de gerenciamento de clientes funciona como um mini-CRM interno.
-Ela apresenta:
+Página simulando o cadastro do usuário.
 
-Lista de clientes cadastrados
+Contém:
 
-Informações básicas de perfil
+Formulário estruturado com inputs de texto, email, senha etc.
 
-Organização e identificação dos usuários do sistema
+Layout feito com <div> e classes CSS
 
-
-Embora não haja persistência de dados, a página demonstra claramente como sistemas reais exibem informações de clientes em:
-
-Clínicas
-
-Salões
-
-Prestadores de serviço
+Preparado para, futuramente, enviar dados ao backend
 
 
-Sua função é reforçar o entendimento da estrutura administrativa de um ambiente profissional e destacar como dados de clientes são organizados visualmente.
+Tags principais:
 
+<form>
 
----
+<label>
 
-10. Estilização e Padrões Visuais
+<input>
 
-A estilização do sistema combina:
+<button>
 
-Tailwind CSS como base principal
-
-CSS próprio (main.css) para ajustes complementares
-
-
-Essa combinação oferece:
-
-Escalabilidade visual
-
-Padronização
-
-Rapidez na construção de layouts complexos
-
-Consistência entre interfaces
-
-
-A utilização de Tailwind demonstra compreensão de ferramentas modernas de estilização orientadas a utilitários, amplamente utilizadas no mercado atual.
 
 
 ---
 
-11. Organização do Projeto como Ferramenta de Aprendizado
+3.5. login.html
 
-A estrutura do BarberShop Premium foi pensada para representar de forma clara:
+Simula a tela de login.
+Estrutura pensada para validação de usuário e senha.
 
-A separação entre perfis (cliente e barbeiro)
+Elementos presentes:
 
-O fluxo de serviços desde a exibição até o agendamento
+Campos de login
 
-A lógica de dashboards administrativos
+Botão de confirmação
 
-A organização de módulos independentes mas integráveis
+Área para mensagens de erro (a implementar)
 
-A forma como sistemas reais apresentam e estruturam suas funcionalidades
-
-
-Mesmo sem backend, o sistema cumpre o propósito de demonstrar conhecimento na construção de interfaces funcionais, setorizadas e coerentes com o que se espera de um projeto de gerenciamento comercial.
 
 
 ---
 
-12. Conclusão
+3.6. sobre.html
 
-O BarberShop Premium representa um sistema completo em estrutura, mesmo que simplificado em lógica interna, demonstrando de forma organizada:
+Página institucional apresentando a barbearia.
+Contém:
 
-Modelagem conceitual
+Textos explicativos
 
-Construção modular
+Imagens
 
-Separação de responsabilidades
+Seções com histórico e missão
 
-Clareza funcional
 
-Aplicação de boas práticas de interfaces
 
-Simulação de fluxos reais de atendimento e gestão
+---
+
+3.7. contato.html
+
+Página onde o usuário pode simular envio de mensagem.
+
+Composta por:
+
+Formulário de contato
+
+Campos de input
+
+Layout simples e responsivo
+
+
+
+---
+
+3.8. Pasta /css – Estilização Geral
+
+style.css contém:
+
+Reset inicial
+
+Paleta de cores do site
+
+Estilização de header, menus, rodapé
+
+Classes de cards e seções
+
+Estilos de responsividade
+
+Loader da página inicial
+
+
+O CSS organiza tudo visualmente e mantém padrão entre todas as páginas.
+
+
+---
+
+3.9. Pasta /js – Scripts de Comportamento
+
+script.js é responsável por:
+
+Controlar o carregamento inicial (loader)
+
+Funções simples de interação do usuário
+
+Preparação para, futuramente, trabalhar com JSON e backend
+
+
+O script está estruturado de forma simples, fácil de expandir.
+
+
+---
+
+3.10. dados.json – Simulação de Banco de Dados
+
+Este arquivo contém dados fictícios que representam:
+
+Serviços
+
+Clientes
+
+Agendamentos
+
+
+Serve como fonte de dados estática enquanto não existe backend real.
+
+
+---
+
+📌 4. Tags HTML Utilizadas e Suas Funções
+
+A seguir, todas as tags presentes no projeto:
+
+Estruturais
+
+<html> — raiz do documento
+
+<head> — metadados, links de CSS, título
+
+<body> — conteúdo visível
+
+<header> — topo da página
+
+<footer> — rodapé
+
+<nav> — navegação
+
+<section> — agrupamento semântico
+
+<article> — blocos de conteúdo
+
+<main> — conteúdo principal (caso presente em alguma página)
+
+<div> — divisão genérica
+
+
+Texto
+
+<h1> … <h6> — títulos
+
+<p> — parágrafos
+
+<span> — texto inline
+
+<label> — rótulos de inputs
+
+
+Mídia
+
+<img> — imagens
+
+<video> (caso exista em alguma página)
+
+
+Formulários
+
+<form> — formulários
+
+<input> — campos de entrada
+
+<select> — lista de opções (caso usada)
+
+<option>
+
+<textarea> — texto multilinha
+
+<button> — botão
+
+
+Tabelas
+
+<table> — tabela
+
+<thead> — cabeçalho
+
+<tbody> — corpo
+
+<tr> — linha
+
+<th> — célula de título
+
+<td> — célula normal
+
+
+Metadados
+
+<link> — arquivos CSS
+
+<script> — arquivos JS
+
+<meta> — charset, viewport, descrição
+
+
+
+---
+
+📌 5. Como o Backend Funcionaria (Documentação Teórica Completa)
+
+Mesmo não implementado, abaixo segue o funcionamento planejado caso o backend fosse desenvolvido.
+
+
+---
+
+🔧 5.1. Arquitetura Geral do Backend
+
+O backend seria estruturado seguindo:
+
+MVC (Model-View-Controller)
+
+PHP
+
+Doctrine ORM (para mapeamento objeto-relacional)
+
+Rotas organizadas por controladores
+
+Autenticação por sessão
+
+
+
+---
+
+🗄️ 5.2. Banco de Dados Planejado
+
+Tabelas principais:
+
+1. Usuários
+
+id_usuario (PK)
+nome
+email
+senha
+telefone
+
+2. Serviços
+
+id_servico (PK)
+nome
+descricao
+valor
+duracao
+
+3. Agendamentos
+
+id_agendamento (PK)
+id_usuario (FK)
+id_servico (FK)
+data
+horario
+status
+
+
+---
+
+🧩 5.3. Models (Doctrine ORM)
+
+Cada tabela seria representada por uma entidade:
+
+Usuario
+
+Servico
+
+Agendamento
+
+
+Cada classe teria:
+
+Atributos
+
+Anotações do Doctrine
+
+Relacionamentos (OneToMany, ManyToOne)
+
+
+Exemplo resumido de atributo:
+
+/** @Column(type="string") */
+private $nome;
+
+
+---
+
+🧭 5.4. Controllers
+
+Controladores planejados:
+
+AuthController
+
+login()
+
+logout()
+
+registrar()
+
+
+UsuarioController
+
+listar()
+
+criar()
+
+editar()
+
+excluir()
+
+
+ServicoController
+
+listar()
+
+criar()
+
+editar()
+
+excluir()
+
+
+AgendamentoController
+
+listar()
+
+criar()
+
+editar()
+
+excluir()
+
+
+
+---
+
+🔄 5.5. Funcionalidades do CRUD
+
+As quatro operações seriam implementadas assim:
+
+Criar
+
+Recebe dados do formulário → valida → salva via Doctrine.
+
+Ler
+
+Busca registros no banco → envia para a view.
+
+Atualizar
+
+Carrega dados existentes → edita → salva alterações.
+
+Excluir
+
+Apaga o registro → retorna para a listagem.
+
+
+---
+
+🔐 5.6. Sistema de Login
+
+Fluxo planejado:
+
+1. Usuário envia email e senha
+
+
+2. Controller verifica com Doctrine
+
+
+3. Senha comparada com hash
+
+
+4. Em caso de sucesso → grava sessão
+
+
+5. Em caso de erro → mensagem de “credenciais inválidas”
+
+
+
+
+---
+
+📡 5.7. JSON como substituto temporário
+
+Enquanto não há backend:
+
+dados.json pode simular banco de dados
+
+O JavaScript pode ler, exibir e manipular dados
+
+Porém não salva permanentemente (não é a mesma coisa que backend)
+
+
+
+---
+
+📌 6. Considerações Finais
+
+O projeto foi desenvolvido com foco na organização, modularidade e semântica, preparando terreno para um backend real no futuro. Todas as páginas estão estruturadas para integrar facilmente os fluxos de login, CRUD e manipulação de dados de forma completa.
+
+Toda a parte visual está finalizada, responsiva e totalmente adaptada para receber um backend posteriormente.
+A documentação acima descreve não só o que existe no projeto, mas também como seria a futura evolução dele.
