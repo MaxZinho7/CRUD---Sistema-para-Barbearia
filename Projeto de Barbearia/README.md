@@ -136,54 +136,9 @@ Elementos HTML usados:
 
 O JavaScript pode futuramente manipular os dados da tabela usando dados reais.
 
-
 ---
 
-3.4. cadastro.html
-
-Página simulando o cadastro do usuário.
-
-Contém:
-
-Formulário estruturado com inputs de texto, email, senha etc.
-
-Layout feito com <div> e classes CSS
-
-Preparado para, futuramente, enviar dados ao backend
-
-
-Tags principais:
-
-<form>
-
-<label>
-
-<input>
-
-<button>
-
-
-
----
-
-3.5. login.html
-
-Simula a tela de login.
-Estrutura pensada para validação de usuário e senha.
-
-Elementos presentes:
-
-Campos de login
-
-Botão de confirmação
-
-Área para mensagens de erro (a implementar)
-
-
-
----
-
-3.6. sobre.html
+3.4. sobre.html
 
 Página institucional apresentando a barbearia.
 Contém:
@@ -198,7 +153,7 @@ Seções com histórico e missão
 
 ---
 
-3.7. contato.html
+3.5. contato.html
 
 Página onde o usuário pode simular envio de mensagem.
 
@@ -214,7 +169,7 @@ Layout simples e responsivo
 
 ---
 
-3.8. Pasta /css – Estilização Geral
+3.6. Pasta /css – Estilização Geral
 
 style.css contém:
 
@@ -236,7 +191,7 @@ O CSS organiza tudo visualmente e mantém padrão entre todas as páginas.
 
 ---
 
-3.9. Pasta /js – Scripts de Comportamento
+3.7. Pasta /js – Scripts de Comportamento
 
 script.js é responsável por:
 
@@ -252,7 +207,7 @@ O script está estruturado de forma simples, fácil de expandir.
 
 ---
 
-3.10. dados.json – Simulação de Banco de Dados
+3.8. dados.json – Simulação de Banco de Dados
 
 Este arquivo contém dados fictícios que representam:
 
