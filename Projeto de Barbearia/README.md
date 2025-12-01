@@ -35,22 +35,20 @@ Embora o projeto atual esteja implementado apenas no front-end, toda a estrutura
 
 Projeto de Barbearia/
 │── index.html
-│── servicos.html
-│── agendamentos.html
-│── cadastro.html
-│── login.html
-│── sobre.html
-│── contato.html
-│── dados.json
+│── Barber_dashboard.html
+│── Service_management.html
+│── Client_dashboard.html
+│── Appointment_booking.html
 │
 ├── css/
-│    └── style.css
-│
-├── js/
-│    └── script.js
-│
-└── img/
-     └── (imagens utilizadas no site)
+│    └── main.css
+          tailwind.ss
+├── login
+│.   └──login.css
+          
+└── json/
+     └── pacote-lock. json
+          pacote. json
 
 
 ---
