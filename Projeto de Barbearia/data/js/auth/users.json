@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nome": "Barbeiro Principal",
+    "email": "barbeiro@gmail.com",
+    "senha": "1234",
+    "tipo": "barbeiro"
+  },
+  {
+    "id": 2,
+    "nome": "Cliente",
+    "email": "cliente@gmail.com",
+    "senha": "1234",
+    "tipo": "cliente"
+  }
+]
