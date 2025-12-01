@@ -67,6 +67,25 @@
         }, 2000);
     </script>
 <script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+
+<script>
+    // Captura o tipo enviado pelo login
+    const params = new URLSearchParams(window.location.search);
+    const tipo = params.get("tipo");
+
+    // Após 2 segundos, direciona ao painel correto
+    setTimeout(() => {
+        if (tipo === "barbeiro") {
+            window.location.href = "./pages/barber_dashboard.html";
+        } else if (tipo === "cliente") {
+            window.location.href = "./pages/client_dashboard.html";
+        } else {
+            // Se acessar direto o index sem login => volta pro login
+            window.location.href = "./pages/login.html";
+        }
+    }, 2000);
+</script>
+
 </body>
 
 </html>
