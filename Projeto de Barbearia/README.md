@@ -29,8 +29,6 @@ Este projeto consiste em um sistema web para uma barbearia, desenvolvido utiliza
 Embora o projeto atual esteja implementado apenas no front-end, toda a estrutura foi planejada para comportar um backend real futuramente, incluindo fluxo de login, simulação de dados e organização modular.
 
 
----
-
 📁 2. Estrutura Geral do Projeto
 
 Projeto de Barbearia/
@@ -51,7 +49,6 @@ Projeto de Barbearia/
           pacote. json
 
 
----
 
 📌 3. Explicação de Cada Pasta e Arquivo
 
@@ -87,7 +84,6 @@ Tags principais utilizadas aqui:
 O JavaScript controla efeitos simples e o carregamento inicial.
 
 
----
 
 3.2. servicos.html – Lista de Serviços
 
@@ -101,9 +97,6 @@ Estrutura baseada em <section> e <div>
 
 Layout responsivo definido pelo CSS
 
-
-
----
 
 3.3. agendamentos.html
 
@@ -134,7 +127,6 @@ Elementos HTML usados:
 
 O JavaScript pode futuramente manipular os dados da tabela usando dados reais.
 
----
 
 3.4. sobre.html
 
@@ -149,8 +141,6 @@ Seções com histórico e missão
 
 
 
----
-
 3.5. contato.html
 
 Página onde o usuário pode simular envio de mensagem.
@@ -164,8 +154,6 @@ Campos de input
 Layout simples e responsivo
 
 
-
----
 
 3.6. Pasta /css – Estilização Geral
 
@@ -187,8 +175,6 @@ Loader da página inicial
 O CSS organiza tudo visualmente e mantém padrão entre todas as páginas.
 
 
----
-
 3.7. Pasta /js – Scripts de Comportamento
 
 script.js é responsável por:
@@ -203,7 +189,6 @@ Preparação para, futuramente, trabalhar com JSON e backend
 O script está estruturado de forma simples, fácil de expandir.
 
 
----
 
 3.8. dados.json – Simulação de Banco de Dados
 
@@ -219,7 +204,6 @@ Agendamentos
 Serve como fonte de dados estática enquanto não existe backend real.
 
 
----
 
 📌 4. Tags HTML Utilizadas e Suas Funções
 
@@ -306,14 +290,11 @@ Metadados
 
 
 
----
-
 📌 5. Como o Backend Funcionaria (Documentação Teórica Completa)
 
 Mesmo não implementado, abaixo segue o funcionamento planejado caso o backend fosse desenvolvido.
 
 
----
 
 🔧 5.1. Arquitetura Geral do Backend
 
@@ -330,8 +311,6 @@ Rotas organizadas por controladores
 Autenticação por sessão
 
 
-
----
 
 🗄️ 5.2. Banco de Dados Planejado
 
@@ -390,9 +369,7 @@ Exemplo resumido de atributo:
 /** @Column(type="string") */
 private $nome;
 
-
----
-
+ 
 🧭 5.4. Controllers
 
 Controladores planejados:
@@ -440,8 +417,6 @@ excluir()
 
 
 
----
-
 🔄 5.5. Funcionalidades do CRUD
 
 As quatro operações seriam implementadas assim:
@@ -463,8 +438,6 @@ Excluir
 Apaga o registro → retorna para a listagem.
 
 
----
-
 🔐 5.6. Sistema de Login
 
 Fluxo planejado:
@@ -485,9 +458,6 @@ Fluxo planejado:
 
 
 
-
----
-
 📡 5.7. JSON como substituto temporário
 
 Enquanto não há backend:
@@ -498,9 +468,6 @@ O JavaScript pode ler, exibir e manipular dados
 
 Porém não salva permanentemente (não é a mesma coisa que backend)
 
-
-
----
 
 📌 6. Considerações Finais
 
